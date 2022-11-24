@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Puissance 3</title>
+<script src="js.js"> </script>
+<style>
+
+
+.button{
+background-color: #fff;
+border-radius: 24px;
+border-style: none;
+box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+color: #3c4043;
+fill: currentcolor;
+font-family: "Google Sans",Roboto,Arial,sans-serif;
+font-size: 14px;
+font-weight: 500;
+justify-content: center;
+letter-spacing: .25px;
+display: inline-block;
+width: 60px;
+height: 60px;
+margin: 0 auto;
+text-align: center;
+}
+
+.button:hover {
+background: #61718b;
+color: white;
+}
+
+
+
+body{
+background-image: url(../img/pic.jpg);
+display: flex;
+padding: 20px;
+justify-content: center;
+flex-direction: column;
+text-align: center;
+}
+.blue{
+color: blue;
+}
+
+.red{
+color: red;
+}
+.game{
+display: flex;
+padding: 20px;
+justify-content: center;
+flex-direction: column;
+text-align: center;
+}
+
+.row0 >div{
+border-style: solid;
+border-color: rgb(184, 5, 5);
+}
+
+.row{
+margin: 0 auto;
+display: inline-block;
+padding: 1px;
+width: 30px;
+height: 30px;
+background-color: gray;
+}
+
+.unclickable {
+pointer-events: none;
+}
+
+.bluePlayer{
+background-color: blue;
+}
+
+.drop{
+border-radius: 50%;
+background-color: rgb(240, 248, 255);
+
+}
+
+.hidden{
+display: none;
+}
+
+.btnstyle{
+display: inline-block;
+width: 50px;
+height: 50px;
+margin: 0 auto;
+border-style: outset;
+}
+
+.intro{
+display: flex;
+padding: 80px;
+margin: 20px auto;
+flex-direction: column;
+background: linear-gradient(rgba(255, 255, 255, 0.59), rgba(255, 255, 255, 0.59)) 50% 50%/calc(100% - 60px) calc(100% - 60px) no-repeat,
+            linear-gradient(300deg, #363275 0%, #bcf4b0 100%);
+border-radius: 23px;
+padding: 57px;
+box-sizing: border-box;
+border-radius: 20px;
+padding: 43px;
+box-sizing: border-box;
+}
+.intro_btn{
+border-radius: 24px;
+border-style: none;
+box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+color: #3c4043;
+fill: currentcolor;
+font-family: "Google Sans",Roboto,Arial,sans-serif;
+font-size: 14px;
+font-weight: 500;
+justify-content: center;
+letter-spacing: .25px;
+display: inline-block;
+width: 60px;
+height: 60px;
+margin: 30px auto;
+text-align: center;
+padding: 10px;
+}
+
+
+
+</style>
+</head>
+<body>
+    <div class="intro" id="intropart">
+        <h2>Puissance 3</h2>
+        <h3>Enter your names</h3>
+        <h2> Player 1 :</h2>
+        <input type="text" id="name1">
+        <h2> Player 2 :</h2>
+        <input type="text" id="name2">
+        <button  class="button" id="inplay" onclick="start()"> PLAY</button>
+    </div>
+
+
+    <div class="game hidden" id="maingame">
+        <div id="players">
+        <p id="t1">Player 1</p>
+        <p id="vs">vs</p>
+        <p id="t2">Player 2</p>
+        </div>
+        
+        <div class="row0 unclickable" id="row0">
+            <div class="drop row" id="dr" onmouseover="oo(this)" onmouseout="ooo(this)" onclick="insert1(this)"></div>
+            <div class="drop row" id="dr" onmouseover="oo(this)" onmouseout="ooo(this)" onclick="insert2(this)"></div>
+            <div class="drop row" id="dr" onmouseover="oo(this)" onmouseout="ooo(this)" onclick="insert3(this)"></div>
+            <div class="drop row" id="dr" onmouseover="oo(this)" onmouseout="ooo(this)" onclick="insert4(this)"></div>
+            <div class="drop row" id="dr" onmouseover="oo(this)" onmouseout="ooo(this)" onclick="insert5(this)"></div>
+        </div>
+        <div class="row1 unclickable">
+            <div class="row" id="c1_5"></div>
+            <div class="row" id="c2_5"></div>
+            <div class="row" id="c3_5"></div>
+            <div class="row" id="c4_5"></div>
+            <div class="row" id="c5_5"></div>
+        </div>
+        <div class="row2 unclickable2">
+            <div class="row" id="c1_4"></div>
+            <div class="row" id="c2_4"></div>
+            <div class="row" id="c3_4"></div>
+            <div class="row" id="c4_4"></div>
+            <div class="row" id="c5_4"></div>
+        </div>
+        <div class="row3 unclickable">
+            <div class="row" id="c1_3"></div>
+            <div class="row" id="c2_3"></div>
+            <div class="row" id="c3_3"></div>
+            <div class="row" id="c4_3"></div>
+            <div class="row" id="c5_3"></div>
+        </div>
+        <div class="row4 unclickable">
+            <div class="row" id="c1_2"></div>
+            <div class="row" id="c2_2"></div>
+            <div class="row" id="c3_2"></div>
+            <div class="row" id="c4_2"></div>
+            <div class="row" id="c5_2"></div>
+        </div>
+        <div class="row5 unclickable" id="r5">
+            <div class="row" id="c1_1"></div>
+            <div class="row" id="c2_1"></div>
+            <div class="row" id="c3_1"></div>
+            <div class="row" id="c4_1"></div>
+            <div class="row" id="c5_1"></div>
+        </div>
+
+
+        
+
+        <h1 class="red hidden">Player 1 wins!!!</h1>
+        <h1 class="blue hidden">Player 2 wins!!!</h1>
+        
+        <button  class="button" id="playbtn" onclick="play()"> PLAY</button>
+</div>
+
+</body>
+</html>
